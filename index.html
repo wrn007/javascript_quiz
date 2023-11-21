@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Quiz</title>
+    <link rel="stylesheet" href="./Assets/css/style.css">
+</head>
+
+
+<main class="test">
+    <header>
+    <div>
+        <button id="viewScores">High Scores</button>
+    </div>
+
+    <div class="timer">
+        Time:<span id="timer"></span>
+    </div>
+</header>
+    <div id="startpage">
+        <h1>Coding Quiz :)</h1>
+
+        <p>Wrong answers will reduce your remaining time :(</p>
+
+        <button id="startButton">Start Quiz</button>
+    </div>
+
+    <div class="hidden" id="endPage">
+    <p>Time is up! Your score is <span id="score"></span>. 
+        Enter your initials below to add your score to the list.
+        <input type="text" id="name">
+    </p>
+
+    </div>
+
+</main>
+
+<main class="hidden" id="scorechart">
+<h1>highscores
+    <ol id="Scores"></ol>
+    <button id="back">Back</button>
+</h1>
+
+
+
+</main>
+<script src="./Assets/js/script.js"></script>
+</body>
+</html>
