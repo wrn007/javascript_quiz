@@ -1,13 +1,19 @@
 * { 
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+ 
 } 
+html {
+    background-color: rgb(178, 245, 213);
+}
 header {
     position: absolute;
     top: 10px;
     left: 10px;
+
 }
 main {
-    border: 6px solid lightblue;
+    border: 6px solid rgb(120, 120, 207);
     border-radius: 25px;
     position: absolute;
     top: 50%;
@@ -16,6 +22,7 @@ main {
     height: 600px;
     transform: translate(50%, -50%); 
     padding: 20px;
+    background-color: paleturquoise
 }
 
 h1{
@@ -32,6 +39,7 @@ button  {
 display: inline-block; 
 margin: 20px; 
 color: whitesmoke; 
+text-decoration: underline;
 background-color: lightcoral; 
 padding: 10px;
 border-radius: 8px; 
@@ -43,7 +51,7 @@ border: 0;
 }
 
 button:hover{
-    background-color: paleturquoise;
+    background-color: rgb(85, 85, 212);
     color: black;
     cursor: grab;
 }
