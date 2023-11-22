@@ -15,7 +15,7 @@
     </div>
 
     <div class="timer">
-        Time:<span id="timer"></span>
+        Time: <span id="timer">0</span>
     </div>
 </header>
     <div id="startpage">
@@ -26,10 +26,16 @@
         <button id="startButton">Start Quiz</button>
     </div>
 
+    <div class="hidden" id="questions">
+        <h3 id="qtext"></h3>
+        <div id="choices"></div>
+
+    </div>
     <div class="hidden" id="endPage">
     <p>Time is up! Your score is <span id="score"></span>. 
         Enter your initials below to add your score to the list.
         <input type="text" id="name">
+        <button id="submitButton">Submit</button>
     </p>
 
     </div>
@@ -46,5 +52,17 @@
 
 </main>
 <script src="./Assets/js/script.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
 </body>
 </html>

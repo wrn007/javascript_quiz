@@ -8,6 +8,7 @@ header {
 }
 main {
     border: 6px solid lightblue;
+    border-radius: 25px;
     position: absolute;
     top: 50%;
     right: 50%;
@@ -35,8 +36,17 @@ background-color: lightcoral;
 padding: 10px;
 border-radius: 8px; 
 border: 0;  
+
+}
+#choices{
+    display: block;
 }
 
+button:hover{
+    background-color: paleturquoise;
+    color: black;
+    cursor: grab;
+}
 .scorechart{
     max width: 450px;
 }
@@ -51,4 +61,4 @@ border: 0;
     main { 
         width: 90%; 
     } 
- 
+}
