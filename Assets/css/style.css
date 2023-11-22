@@ -53,12 +53,12 @@ button:hover{
 
 @media screen and (max-width: 768px) { 
     main { 
-        width: 80%; 
+        
     } 
 } 
  
 @media screen and (max-width: 575px) { 
     main { 
-        width: 90%; 
+   
     } 
 }

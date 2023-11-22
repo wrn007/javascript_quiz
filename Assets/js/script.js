@@ -9,7 +9,7 @@ let questionGroup = 0
 let timer;
 let startpage = document.querySelector("#startpage")
 let endpage = document.querySelector("#endPage")
-let qtext = document.querySelector('#qtext')
+let qtext = document.querySelector('#questext');
 let choices = document.querySelector('#choices')
 let scoreset = []
 let questions = [ 
@@ -17,7 +17,7 @@ let questions = [
         prompt: `which file type is used primarily for customizing the appearance of specific website elements`, 
 		options: [ 
 			".css", 
-			".js", id
+			".js",
 			".html", 
 			".pdf", 
 		], 
@@ -61,8 +61,12 @@ let questions = [
 	}, 
 ]; 
 
-
+//when the start button is pressed, this function will run
 function startquiz() {
+    //display questions function should show questions, with options as buttons
+    //when the timer reaches 0 the interval will clear so the timer no longer counts down, and it will run the endQuiz function
+    //the starting page is no longer displayed and the hidden attribute from the quiz element is removed 
+    displayQuestions;
     timeEl.textContent = secondsLeft;
     timer = setInterval(function () {
         secondsLeft--;
@@ -72,28 +76,27 @@ function startquiz() {
             clearInterval(timer);
             endQuiz;
         }
+        //repeats every 1 sec
     }, 1000); 
     startpage.setAttribute("class", "hidden");
     quiz.removeAttribute("class");
-    displayQuestions;
+   
 }
 
-function startTimer(){
-    secondsLeft--;
-    timeEl.textContent = secondsLeft;
-    if (secondsLeft == 0){
-        endQuiz;
-    }
-}
 
+//this function is called from the startquiz function
+//this sets an active question from the questions available in my let statements
 function displayQuestions(){
     let questionactive = questions[questionGroup];
+   //sets text element to be the promt value of the active question 
     qtext.textContent = questionactive.prompt;
     
     choices.innerHTML = "";
-    questionactive.options.forEach(
-function (choice, i){
-
+    //repeatedly executes
+    questionactive.options.forEach( function (choice, i){
+//creates a button element for each option in the question,
+//gives it a 1 2 3 or 4 depending on which one it is, and appends it to the parent div
+// on click, it will run the choose answer function
     let answerbutton = document.createElement("button");
     answerbutton.setAttribute("value", choice);
     answerbutton.textContent = i + 1 + choice;
@@ -102,28 +105,31 @@ function (choice, i){
 });}
 
 
-
+//this function is called when clicking on an option from display questions
 function chooseanswer(){
-    
-    if (this.value !== questions[activequestion].answer)
+    //if the value from choose answer is NOT equal to the answer declared in the let statements,
+    //then it moves onto the next question and adds 10 seconds
+    if (this.value !== questions[questionactive].answer)
     {
         questionGroup++; 
         secondsLeft -= 10;
+        //double checks to see if the timer is less than 0 after decreasing by 10, if so, update the timer to 0 and
+        //call the end quiz function
         if (time < 0){
             time = 0;
             timer.textContent = secondsLeft;
-            quizEnd;
+            quizEnd();
         }
-        
+        //ends the quiz if the last question is answered
         if (activequestion === questions.length) { 
             quizEnd(); 
         }  
-        
+        //display next question
         else {
         displayQuestions();
         } 
     }
-
+//if it was the correct answer then it moves onto the next question or ends the quiz if it was the last question
     if ( this.value === questions[questionGroup].answer)
     {
         activequestion++; 
@@ -134,31 +140,37 @@ function chooseanswer(){
         } 
     }
 }
-
+//called when the game ends either by finishing all the questions or the timer running out
 function endQuiz() {
-    clearInterval()
+    //recheck the interval was cleared
+    clearInterval(timer)
+    //remove the hidden class from the endpage
  endpage.removeAttribute("class");
+ //rehide the quiz section
  quiz.setAttribute("class", "hidden");
+ //set your final score to the seconds you had left when it ended
  let finalscore = secondsLeft;
 
 }
 
-
+//is called when the user clickes on the submit button
 function submitScore(){
     let nameinput = initials.value();
 if (nameinput !== null) {
+    //past here i could not add much more. since my earlier code does not work, i could not test or debug anything
     let storedscores = JSON.parse(localstorage.getItem("highscores"))
     if (storedscores !== null){
         scoreset=storedscores;
     }
     localStorage.setItem("highscores", JSON.stringify(scoreset));
-
-
+    //alert the user that their score has been submitted, and to check their score on the scoreboard
     alert("score submitted! check to see how you stand amongst your friends.")
 }
 }
 
-function highscores(){}
+function highscores(){
+    
+}
 
 startbutton.addEventListener("click", startquiz);
 
