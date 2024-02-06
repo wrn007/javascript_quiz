@@ -1,72 +1,87 @@
 * { 
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bolder;
- 
+    box-sizing: border-box;
 } 
+
 html {
     background-color: rgb(178, 245, 213);
+    height: 100%;
 }
+
 header {
     position: absolute;
     top: 10px;
     left: 10px;
-
+    z-index: 1; 
 }
+
 main {
     border: 6px solid rgb(120, 120, 207);
     border-radius: 25px;
     position: absolute;
     top: 50%;
-    right: 50%;
-    width: 50%;
-    height: 600px;
-    transform: translate(50%, -50%); 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    max-width: 800px;
+    height: auto;
     padding: 20px;
-    background-color: paleturquoise
+    background-color: paleturquoise;
+    z-index: 0;
 }
 
-h1{
-    text-align: center;
-}
-p{
+h1, p {
     text-align: center;
 }
 
 .hidden {
     display: none;
 }
-button  {
-display: inline-block; 
-margin: 20px; 
-color: whitesmoke; 
-text-decoration: underline;
-background-color: lightcoral; 
-padding: 10px;
-border-radius: 8px; 
-border: 0;  
 
-}
-#choices{
+button {
     display: block;
+    margin: 20px auto; 
+    color: whitesmoke;
+    text-decoration: none;
+    background-color: lightcoral;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 0;
+    cursor: pointer;
+    z-index: 1;
 }
 
-button:hover{
+button#startButton {
+    margin-top: 100px; 
+}
+
+button#viewScores {
+    margin-top: 50px; 
+}
+
+button:hover {
     background-color: rgb(85, 85, 212);
     color: black;
-    cursor: grab;
-}
-.scorechart{
-    max width: 450px;
 }
 
-@media screen and (max-width: 768px) { 
-    main { 
-        
-    } 
-} 
- 
-@media screen and (max-width: 575px) { 
-    main { 
-   
-    } 
+#choices {
+    text-align: center;
+}
+
+.scorechart {
+    max-width: 450px;
+    margin: 20px auto;
+}
+
+@media screen and (max-width: 768px) {
+    main {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    main {
+        width: 90%;
+    }
 }
